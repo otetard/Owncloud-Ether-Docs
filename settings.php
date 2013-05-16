@@ -27,6 +27,7 @@ $params = array(
 );
 
 if ($_POST) {
+  OCP\Util::callCheck();
   foreach($params as $param){
     if(isset($_POST[$param])){
       OC_Appconfig::setValue('files_etherpad', $param, $_POST[$param]);
@@ -36,6 +37,7 @@ if ($_POST) {
 
 // fill template
 $tmpl = new OC_Template('files_etherpad', 'settings');
+$tmpl->assign('requesttoken', OCP\Util::callRegister());
 foreach($params as $param){
   $value = OC_Appconfig::getValue('files_etherpad', $param,'');
   $tmpl->assign($param, $value);

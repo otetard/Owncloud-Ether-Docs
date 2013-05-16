@@ -13,6 +13,7 @@
                 value="<?php p($_['files_etherpad_calc_host']); ?>" />
                 <em><?php p($l->t('ex:')); ?> http://framacalc.org</em>
         </p>
+        <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']); ?>" id="requesttoken">
         <input type="submit" value="<?php p($l->t('Save')); ?>" />
     </fieldset>
 </form>
